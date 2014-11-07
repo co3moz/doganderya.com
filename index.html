@@ -2,58 +2,7 @@
 	<head>
 		<title>speak with doğan</title>
 		<meta charset="utf-8">
-		<style>
-			body {
-				background:	rgb(6, 6, 6);
-			}
-			
-			#logo {
-				font-family: monospace;
-				font-size: 50pt;
-				text-align: center;
-				margin-bottom: -38px;
-				color: white;
-			}
-			
-			#container {
-				margin: 0 auto;
-				margin-top: 50px;
-				width: 500px;
-				height: 550px;
-			}
-			
-			#console {
-				width: 500px;
-				height: 500px;
-				
-				border-radius: 10px;
-				
-				background: rgb(29, 29, 29);
-				
-				transition: all 1s ease-in-out;
-				
-				color: lime;
-				padding: 10px;
-				word-wrap: break-word;
-				
-				font-family: monospace;
-			}
-			
-			#sg {
-				width: 500px;
-				padding: 10px;
-				
-				margin-left: 10px;
-				margin-top: -50px;
-				
-				background: rgb(42, 42, 42);
-				color: white;
-				
-				outline: none;
-				border: none;
-				border-radius: 10px;
-			}
-		</style>
+		<style>body {background:	rgb(6, 6, 6);}#logo {font-family: monospace;font-size: 50pt;text-align: center;margin-bottom: -38px;color: white;}#container {margin: 0 auto;margin-top: 50px;width: 500px;height: 550px;}#console {width: 500px;height: 500px;border-radius: 10px;background: rgb(29, 29, 29);transition: all 1s ease-in-out;color: lime;padding: 10px;word-wrap: break-word;font-family: monospace;}#sg {width: 500px;padding: 10px;margin-left: 10px;margin-top: -50px;background: rgb(42, 42, 42);color: white;outline: none;border: none;border-radius: 10px;}</style>
 	</head>
 	<body>
 		<audio id="audio" src="pipe.wav"> </audio>
@@ -69,38 +18,45 @@
 		</div>
 		
 		<script>
+            function alias(t) { for(var i = 1;i< arguments.length;i++) { window[arguments[i]] = window[t]; } }
 			var c = document.getElementById("console");
+			var _ = document.getElementById("container");
 			
-			// hack codes xDé 
+			/*
+                şimdi konsola 
+                    $ kim+sevdi
+                yaz
+            */
 			var help = "Hello again.. <br>this console writed by me. and you can meet me with this system. how about to write banana?<br><img width=\"30%\" src=\"banana.png\">";
 			var banana = "Try 'apple' now";
+            var kim = "you";
 			var apple = "I didn't say apple.. I said 'apple' :(";
 			var github = 'This is my github link: <a href="https://github.com/co3moz" target="new" style="color: white;">here yu go</a>';
             var facebook = 'This is my facebook link: <a href="http://www.facebook.com/dgnderya">here yu go</a>';
             var furkan = 'a human, friend, troller, programmer, artist...';
             var tolga = 'animeci boy :D';
             var dogan = 'it\'s actually doğan';
-            window['doğan'] = 'it\'s me.. You can understand me with solving this puzzless..';
-			window["'apple'"] = "how about to try wololo";
+            var goksel = 'another programmer boy';
+            
+            
             var hi = "hi :)";
+            var sevdi = "re an idiot";
             var hello = hi;
             var toyota = "I'm working in there now";
             var selam = "sanada selam kanka";
             var sa = "as :D";
+            var as = "naber?";
             var naber= "iyi sen?";
             function iyi(x) {
                 return "İyi olmaya devam et ozaman";   
             }
-            var fine = iyi;
             window[':d'] = function() {
                 return "neye güldün :(";   
             }
-            window[':D'] = window[':d'];
-            
+
             function kotu(x) {
                 return "hayırdır?";   
             }
-            window['kötü'] = kotu;
             
             function how(x) {
                 if(x[1] == "are" && x[2] == "you") {
@@ -122,6 +78,7 @@
             
             function enough(x) {
                 c.style.background="rgb(29, 29, 29)";
+                return "I'm bored press f12 and hack some code..";
             }
             
             function $(x) {
@@ -133,48 +90,15 @@
 					return "error appeared in code<br>" + e;
 				}
 			}
-			
-			
-			(function () {
-				var a = document.getElementById("audio");
-				
-				function showMyAss (_c, _i, _s, _call) {
-					_s || (_s = 10); 
-					_call || (_call = function() {});
-					(typeof _i == "string") || (_i = String(_i)); 
-					var i = _i.length-1;
-					var e = setInterval(function () {
-						_c.innerHTML = _i.substring(0, _i.length-(i--));
-						if(i==-1) {
-							clearInterval(e);
-							_call();
-						}
-					}, _s);
-				}
-				showMyAss(c, "my neym is doğan who are yu,<br>note: this system is a cahil. samtayms cant spik ingiliş<br><br> for start with queue just write help");
-
-				var sg = document.getElementById("sg");
-				var writing = 0;
-				sg.addEventListener("keypress", function (e){
-					if((e.keyCode == 13) && !writing) {
-						writing = 1;
-						sg.style.background = "rgb(2, 2, 2)";
-						(function(t) {
-							var p = t.split(' ');
-							if(window[p[0]]) {
-								showMyAss(c, "client says: \"" + t +"\"<br>" + (typeof window[p[0]] == "function" ? window[p[0]](p) : window[p[0]]), 10, function() { writing =0; sg.style.background = "rgb(42, 42, 42)"; });
-								return;
-							}
-
-							showMyAss(c, "client says: \"" + t + "\"<br>Undefined banana, Feed me right banana", 10, function() { writing =0; sg.style.background = "rgb(42, 42, 42)"; });
-						})(sg.value.replace(/</,"&lt;").replace(/>/,"&gt;"));
-						sg.value = "";
-						a.play();
-					}
-				});
-				sg.focus();
-				sg.value = sg.value;
-			})();
+            
+            window['doğan'] = 'it\'s me.. You can understand me with solving this puzzless..';
+			window["'apple'"] = "how about to try wololo";
+            alias("kotu", "kötü");
+            alias("kotu", "kötü");
+            alias("iyi", "fine");
+            alias(":d", ":D", "xD");
+            
+            (function () {var a = document.getElementById("audio");function showMyAss (_c, _i, _s, _call) {_s || (_s = 10); _call || (_call = function() {});(typeof _i == "string") || (_i = String(_i)); var i = _i.length-1;var e = setInterval(function () {_c.innerHTML = _i.substring(0, _i.length-(i--));if(i==-1) {clearInterval(e);_call();}}, _s);}showMyAss(c, "my neym is doğan who are yu,<br>note: this system is a cahil. samtayms cant spik ingiliş<br><br> for start with queue just write help");var sg = document.getElementById("sg");var writing = 0;sg.addEventListener("keypress", function (e){if((e.keyCode == 13) && !writing) {writing = 1;sg.style.background = "rgb(2, 2, 2)";(function(t) {var p = t.split(' ');if(window[p[0]]) {showMyAss(c, "client says: \"" + t +"\"<br>" + (typeof window[p[0]] == "function" ? window[p[0]](p) : window[p[0]]), 10, function() { writing =0; sg.style.background = "rgb(42, 42, 42)"; });return;}showMyAss(c, "client says: \"" + t + "\"<br>Undefined banana, Feed me right banana", 10, function() { writing =0; sg.style.background = "rgb(42, 42, 42)"; });})(sg.value.replace(/</g,"&lt;").replace(/>/g,"&gt;"));sg.value = "";a.play();}});sg.focus();sg.value = sg.value;})(); 
 		</script>
 	</body>
 </html>
