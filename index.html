@@ -71,27 +71,60 @@
 			var c = document.getElementById("console");
 			
 			// hack codes xDé 
-			var help = "client says: \"help\"<br>The MIT License (MIT)<br>Copyright (c) 2014 co3moz<br><br>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br>.bla<br>.more bla's<br>.alot of blas.....<br>so boooriiing.. just write banana<br><img width=\"30%\" src=\"banana.png\">";
-			var banana = "client says: \"banana\"<br>Try 'apple' now";
-			var apple = "client says: \"apple\"<br>I didn't say apple.. I said 'apple' :(";
-			window["'apple'"] = "client says: \"'apple'\"<br>how about to try wololo";
-			function img(x) {
-				c.style.background= "rgb(0, 24, 18)"
-				return "client says: \"" + x.join(' ') + "\"<br><img width=\"64\" height=\"64\" src=\"" + x[1] + "\">"
-			}
-			
+			var help = "Hello again.. <br>this console writed by me. and you can meet me with this system. how about to write banana?<br><img width=\"30%\" src=\"banana.png\">";
+			var banana = "Try 'apple' now";
+			var apple = "I didn't say apple.. I said 'apple' :(";
 			var github = 'This is my github link: <a href="https://github.com/co3moz" target="new" style="color: white;">here yu go</a>';
-			
-			function math(x) {
-				c.style.background= "rgb(43, 14, 38)"
-				var t = [];
-				for(var p = 1;p<x.length;p++) {
-					t.push(x[p]);
-				}
+            var facebook = 'This is my facebook link: <a href="http://www.facebook.com/dgnderya">here yu go</a>';
+            var furkan = 'a human, friend, troller, programmer, artist...';
+            var tolga = 'animeci boy :D';
+            var dogan = 'it\'s actually doğan';
+            window['doğan'] = 'it\'s me.. You can understand me with solving this puzzless..';
+			window["'apple'"] = "how about to try wololo";
+            var hi = "hi :)";
+            var hello = hi;
+            var toyota = "I'm working in there now";
+            var selam = "sanada selam kanka";
+            var sa = "as :D";
+            var naber= "iyi sen?";
+            function iyi(x) {
+                return "İyi olmaya devam et ozaman";   
+            }
+            var fine = iyi;
+            window[':d'] = function() {
+                return "neye güldün :(";   
+            }
+            window[':D'] = window[':d'];
+            
+            function kotu(x) {
+                return "hayırdır?";   
+            }
+            window['kötü'] = kotu;
+            
+            function how(x) {
+                if(x[1] == "are" && x[2] == "you") {
+                    return "I'm fine.. u?";
+                }
+                
+                return "How what? I dont know that expression";
+            }
+            
+            function wololo(x) {
+                c.style.background="blue";
+                return "WOLOLO AYO LO LO<br>WOLOLOOOO<br> Congrats you are now blue sir<br>write enough";
+            }
+            
+            function enough(x) {
+                c.style.background="rgb(29, 29, 29)";
+            }
+            
+            function $(x) {
+				c.style.background= "rgb(43, 14, 38)";
+                x[0] = "";
 				try {
-					return "client says: \"" + x.join(' ') + "\"<br>" + eval (t.join(' '));
+					return eval (x.join(' '));
 				} catch(e) {
-					return "client says: \"" + x.join(' ') + "\"<br>error appeared in code";
+					return "error appeared in code<br>" + e;
 				}
 			}
 			
@@ -112,7 +145,7 @@
 						}
 					}, _s);
 				}
-				showMyAss(c, "my neym is doğan who are yu,<br>note: this system is a cahil. so sistem cant spik ingiliş");
+				showMyAss(c, "my neym is doğan who are yu,<br>note: this system is a cahil. samtayms cant spik ingiliş<br><br> for start with queue just write help");
 
 				var sg = document.getElementById("sg");
 				var writing = 0;
@@ -123,7 +156,7 @@
 						(function(t) {
 							var p = t.split(' ');
 							if(window[p[0]]) {
-								showMyAss(c, typeof window[p[0]] == "function" ? window[p[0]](p) : window[p[0]], 10, function() { writing =0; sg.style.background = "rgb(42, 42, 42)"; });
+								showMyAss(c, "client says: \"" + t +"\"<br>" + (typeof window[p[0]] == "function" ? window[p[0]](p) : window[p[0]]), 10, function() { writing =0; sg.style.background = "rgb(42, 42, 42)"; });
 								return;
 							}
 
