@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title>speak with doğan</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background:	rgb(6, 6, 6);
+			}
+			
+			#logo {
+				font-family: monospace;
+				font-size: 50pt;
+				text-align: center;
+				margin-bottom: -38px;
+				color: white;
+			}
+			
+			#container {
+				margin: 0 auto;
+				margin-top: 50px;
+				width: 500px;
+				height: 550px;
+			}
+			
+			#console {
+				width: 500px;
+				height: 500px;
+				
+				border-radius: 10px;
+				
+				background: rgb(29, 29, 29);
+				
+				transition: all 1s ease-in-out;
+				
+				color: lime;
+				padding: 10px;
+				word-wrap: break-word;
+				
+				font-family: monospace;
+			}
+			
+			#sg {
+				width: 500px;
+				padding: 10px;
+				
+				margin-left: 10px;
+				margin-top: -50px;
+				
+				background: rgb(42, 42, 42);
+				color: white;
+				
+				outline: none;
+				border: none;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="logo">
+			d(ogan+erya)
+		</div>
+		<div id="container">
+			<div id="console">
+				
+			</div>
+			<input type="text" id="sg" value="help">
+		</div>
+		
+		<script>
+			var c = document.getElementById("console");
+			
+			// hack codes xDé 
+			var help = "client says: \"help\"<br>The MIT License (MIT)<br>Copyright (c) 2014 co3moz<br><br>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br>.bla<br>.more bla's<br>.alot of blas.....<br>so boooriiing.. just write banana<br><img width=\"30%\" src=\"banana.png\">";
+			var banana = "client says: \"banana\"<br>Try 'apple' now";
+			var apple = "client says: \"apple\"<br>I didn't say apple.. I said 'apple' :(";
+			window["'apple'"] = "client says: \"'apple'\"<br>how about to try wololo";
+			function img(x) {
+				c.style.background= "rgb(0, 24, 18)"
+				return "client says: \"" + x.join(' ') + "\"<br><img width=\"64\" height=\"64\" src=\"" + x[1] + "\">"
+			}
+			
+			function mat(x) {
+				c.style.background= "rgb(43, 14, 38)"
+				x[0]="";
+				return eval (x.join(' '));
+			}
+			(function () {
+				function showMyAss (_c, _i, _s, _call) {
+					_s || (_s = 10); 
+					_call || (_call = function() {});
+					(typeof _i == "string") || (_i = String(_i)); 
+					var i = _i.length-1;
+					var e = setInterval(function () {
+						_c.innerHTML = _i.substring(0, _i.length-(i--));
+						if(i==-1) {
+							clearInterval(e);
+							_call();
+						}
+					}, _s);
+				}
+				showMyAss(c, "my neym is doğan who are yu,<br>note: this system is a cahil. so sistem cant spik ingiliş");
+
+				var sg = document.getElementById("sg");
+				sg.addEventListener("keypress", function (e){
+					if(e.keyCode == 13) {
+						(function(t) {
+							var p = t.split(' ');
+							if(window[p[0]]) {
+								showMyAss(c, typeof window[p[0]] == "function" ? window[p[0]](p) : window[p[0]]);
+								return;
+							}
+
+							showMyAss(c, "client says: \"" + t + "\"<br>Undefined banana, Feed me right banana");
+						})(sg.value.replace(/</,"&lt;").replace(/>/,"&gt;"));
+						sg.value = "";
+					}
+				});
+				sg.focus();
+				sg.value = sg.value;
+			})();
+		</script>
+	</body>
+</html>
